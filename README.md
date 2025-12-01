@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Siscomart UG – Smart Marketplace</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* ---------- GLOBAL ---------- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+header {
+    background: #001f3f;
+    padding: 15px 30px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+nav a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+}
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: #002b5b;
+    color: white;
+}
+.hero button {
+    padding: 12px 25px;
+    background: #fcd703;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.categories {
+    padding: 40px;
+    background: #fff;
+}
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.category-card {
+    background: #001f3f;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+}
+section h2 {
+    text-align: center;
+}
+.ai-box {
+    padding: 40px;
+    background: #e9eef7;
+}
+.ai-chat {
+    display: flex;
+    flex-direction: column;
+}
+#ai-input {
+    width: 100%;
+    height: 100px;
+    margin: 10px 0;
+    padding: 10px;
+}
+#ai-response {
+    background: white;
+    padding: 15px;
+    min-height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+footer {
+    background: #001f3f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">Siscomart UG</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#ai">AI Assistant</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <h1>Welcome to Siscomart UG</h1>
+    <p>Your smart B2B and B2C marketplace for trade, wholesale, and sourcing.</p>
+    <button onclick="window.location='#categories'">Browse Categories</button>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+    <h2>Featured Categories</h2>
+    <div class="category-grid">
+        <div class="category-card">Electronics</div>
+        <div class="category-card">Fashion</div>
+        <div class="category-card">Industrial Supplies</div>
+        <div class="category-card">Beauty & Care</div>
+        <div class="category-card">Agriculture</div>
+        <div class="category-card">Home & Living</div>
+    </div>
+</section>
+
+<!-- AI ASSISTANT -->
+<section class="ai-box" id="ai">
+    <h2>AI Website Assistant</h2>
+    <p>Tell the AI to help organize or modify your website.</p>
+    <div class="ai-chat">
+        <div id="ai-response">AI: Hello! How can I assist you with your website?</div>
+        <textarea id="ai-input" placeholder="Type your message to the AI..."></textarea>
+        <button onclick="sendAI()" style="padding: 10px; background:#001f3f; color:white; border:none; border-radius:5px;">Send</button>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="categories" id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center;"><strong>Phone:</strong> 0747622255</p>
+    <p style="text-align:center;"><strong>Email:</strong> siscolensmedia@gmail.com</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2025 Siscomart UG. All rights reserved.</p>
+</footer>
+
+<!-- AI SCRIPT -->
+<script>
+function sendAI() {
+    const input = document.getElementById("ai-input").value.trim();
+    const box = document.getElementById("ai-response");
+
+    if (!input) {
+        box.innerHTML = "AI: Please type something for me to process.";
+        return;
+    }
+
+    box.innerHTML = "AI: Thinking...";
+
+    setTimeout(() => {
+        // Simple local AI simulation
+        let reply = "";
+
+        if (input.toLowerCase().includes("organize")) {
+            reply = "I can help you organize your website. Try asking me to rearrange categories, suggest new sections, or improve design.";
+        } 
+        else if (input.toLowerCase().includes("add")) {
+            reply = "Noted. I can guide you on adding new features. Tell me exactly what you want to add.";
+        } 
+        else if (input.toLowerCase().includes("hello") || input.toLowerCase().includes("hi")) {
+            reply = "Hello! How can I assist you today?";
+        } 
+        else {
+            reply = "I received your message: \"" + input + "\". You can upgrade me by connecting to a real AI API later.";
+        }
+
+        box.innerHTML = "AI: " + reply;
+    }, 700);
+}
+</script>
+
+</body>
+</html>
